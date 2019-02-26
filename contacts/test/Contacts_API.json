@@ -1,0 +1,446 @@
+{
+    "version": 4,
+    "entities": [
+        {
+            "entity": {
+                "type": "Project",
+                "description": "An API for keeping track of your contacts and the companies they work for. \n",
+                "fullProjectTag": "63f2289d-4a3b-4856-8802-d4a5632518ab",
+                "id": "cca18f79-6577-4e98-8d14-6cd55d4d33f9",
+                "importedFrom": "013ef25b-6f59-4581-8902-589972dcbdf0",
+                "lastModified": "2019-02-26T16:03:10.000+11:00",
+                "name": "Contacts API",
+                "tag": "4b286f9a-f90c-4728-9a0d-2d132f099944"
+            },
+            "children": [
+                {
+                    "entity": {
+                        "type": "Service",
+                        "id": "54b79f43-af58-426d-860e-2abb9e93bbee",
+                        "name": "Companies",
+                        "tag": "7c737d7d-c5dc-4d82-a82a-87bde9d8e1e1",
+                        "parentId": "cca18f79-6577-4e98-8d14-6cd55d4d33f9"
+                    },
+                    "children": [
+                        {
+                            "entity": {
+                                "type": "Request",
+                                "method": {
+                                    "requestBody": true,
+                                    "link": "",
+                                    "name": "POST"
+                                },
+                                "body": {
+                                    "bodyType": "Text",
+                                    "textBody": "{\n  \"name\": \"George Street Brewery\",\n  \"address\":{\n    \"street\": \"2 place de la Defense\",\n    \"zipcode\": \"92053\",\n    \"city\": \"Paris\"\n  },\n  \"tags\":[\n    \"brewery\",\n    \"beer\",\n    \"ale\"\n  ]\n}"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "scheme": {
+                                        "secure": true,
+                                        "name": "https",
+                                        "version": "V11"
+                                    },
+                                    "host": "vasigta.ap.api-mocks.com",
+                                    "path": "/companies/"
+                                },
+                                "description": "Adds a Company",
+                                "id": "cfdeaa09-8a52-4471-9b70-02fc69b807e4",
+                                "name": "Create a new Company",
+                                "tag": "15554512-5ffb-45a0-a52f-13bfbfda5f49",
+                                "headers": [
+                                    {
+                                        "enabled": true,
+                                        "name": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "enabled": true,
+                                        "name": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "parentId": "54b79f43-af58-426d-860e-2abb9e93bbee"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "type": "Request",
+                                "method": {
+                                    "link": "",
+                                    "name": "DELETE"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "scheme": {
+                                        "secure": true,
+                                        "name": "https",
+                                        "version": "V11"
+                                    },
+                                    "host": "vasigta.ap.api-mocks.com",
+                                    "path": "/companies/{companyid}"
+                                },
+                                "description": "Deletes a Company",
+                                "id": "4900ba6e-920a-4fd4-a31b-ec6687b3fd58",
+                                "name": "Delete a Company",
+                                "tag": "87c27ad4-a33f-4979-9db4-f25adf8c43f4",
+                                "headers": [],
+                                "parentId": "54b79f43-af58-426d-860e-2abb9e93bbee"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "type": "Request",
+                                "method": {
+                                    "link": "",
+                                    "name": "GET"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "scheme": {
+                                        "secure": true,
+                                        "name": "https",
+                                        "version": "V11"
+                                    },
+                                    "host": "vasigta.ap.api-mocks.com",
+                                    "path": "/companies/{companyid}"
+                                },
+                                "description": "Loads a Company",
+                                "id": "059e56c7-471f-468c-8de6-f5a89237f649",
+                                "name": "Load an individual Company",
+                                "tag": "74296367-0815-4a5c-90a8-848bb938f4a9",
+                                "headers": [
+                                    {
+                                        "enabled": true,
+                                        "name": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "parentId": "54b79f43-af58-426d-860e-2abb9e93bbee"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "uriEditor": true,
+                                "type": "Request",
+                                "method": {
+                                    "link": "",
+                                    "name": "GET"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "query": {
+                                        "delimiter": "&",
+                                        "items": [
+                                            {
+                                                "name": "$size",
+                                                "value": "10"
+                                            },
+                                            {
+                                                "name": "$page",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "name": "$sort",
+                                                "value": "name ASC"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "value": "George Street Brewery"
+                                            }
+                                        ]
+                                    },
+                                    "scheme": {
+                                        "secure": true,
+                                        "name": "https",
+                                        "version": "V11"
+                                    },
+                                    "host": "vasigta.ap.api-mocks.com",
+                                    "path": "/companies/"
+                                },
+                                "description": "Loads a list of Company",
+                                "id": "e222a463-8e9c-48eb-bbe6-824aa201525f",
+                                "name": "Load the list of Companies",
+                                "tag": "b4abfd90-ce76-4b5d-91f6-068472f98d13",
+                                "headers": [
+                                    {
+                                        "enabled": true,
+                                        "name": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "parentId": "54b79f43-af58-426d-860e-2abb9e93bbee"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "type": "Request",
+                                "method": {
+                                    "requestBody": true,
+                                    "link": "",
+                                    "name": "PUT"
+                                },
+                                "body": {
+                                    "bodyType": "Text",
+                                    "textBody": "{\n  \"name\": \"George Street Brewery\",\n  \"address\":{\n    \"street\": \"2 place de la Defense\",\n    \"zipcode\": \"92053\",\n    \"city\": \"Paris\"\n  },\n  \"tags\":[\n    \"brewery\",\n    \"beer\",\n    \"ale\"\n  ]\n}"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "scheme": {
+                                        "secure": true,
+                                        "name": "https",
+                                        "version": "V11"
+                                    },
+                                    "host": "vasigta.ap.api-mocks.com",
+                                    "path": "/companies/{companyid}"
+                                },
+                                "description": "Stores a Company",
+                                "id": "08bfec9f-a3a8-449b-8018-a4aa383f9993",
+                                "name": "Update a Company",
+                                "tag": "0d14737e-07c9-4c16-a3c3-e35e339e4613",
+                                "headers": [
+                                    {
+                                        "enabled": true,
+                                        "name": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "enabled": true,
+                                        "name": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "parentId": "54b79f43-af58-426d-860e-2abb9e93bbee"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "entity": {
+                        "type": "Service",
+                        "description": "",
+                        "id": "44120f57-fbe7-4f7d-8d44-7036dd6d8257",
+                        "name": "Contacts",
+                        "tag": "f29f9ccf-558b-4de7-97f9-7473ffa36560",
+                        "parentId": "cca18f79-6577-4e98-8d14-6cd55d4d33f9"
+                    },
+                    "children": [
+                        {
+                            "entity": {
+                                "type": "Request",
+                                "method": {
+                                    "requestBody": true,
+                                    "link": "",
+                                    "name": "POST"
+                                },
+                                "body": {
+                                    "bodyType": "Text",
+                                    "textBody": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"birthday\": 152755200000,\n  \"active\": true,\n  \"rank\": 1,\n  \"company\": \"0e8cedd0-ad98-11e6-bf2e-47644ada7c0f\"\n}"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "scheme": {
+                                        "secure": true,
+                                        "name": "https",
+                                        "version": "V11"
+                                    },
+                                    "host": "vasigta.ap.api-mocks.com",
+                                    "path": "/contacts/"
+                                },
+                                "description": "Adds a Contact",
+                                "id": "471b1322-3fac-4c4e-8df7-d4774199b05d",
+                                "name": "Create a Contact",
+                                "tag": "e3abd4b0-a326-4225-887e-3e3b693e1524",
+                                "headers": [
+                                    {
+                                        "enabled": true,
+                                        "name": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "enabled": true,
+                                        "name": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "parentId": "44120f57-fbe7-4f7d-8d44-7036dd6d8257"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "type": "Request",
+                                "method": {
+                                    "link": "",
+                                    "name": "DELETE"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "scheme": {
+                                        "secure": true,
+                                        "name": "https",
+                                        "version": "V11"
+                                    },
+                                    "host": "vasigta.ap.api-mocks.com",
+                                    "path": "/contacts/{contactid}"
+                                },
+                                "description": "Deletes a Contact",
+                                "id": "006d4165-2af9-4180-b0b7-63e6f520e0fe",
+                                "name": "Delete a Contact",
+                                "tag": "8aae4a26-dd11-4a4a-b53c-23c327954506",
+                                "headers": [],
+                                "parentId": "44120f57-fbe7-4f7d-8d44-7036dd6d8257"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "uriEditor": true,
+                                "type": "Request",
+                                "method": {
+                                    "link": "",
+                                    "name": "GET"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "query": {
+                                        "delimiter": "&",
+                                        "items": [
+                                            {
+                                                "name": "$size",
+                                                "value": "10"
+                                            },
+                                            {
+                                                "name": "$page",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "name": "$sort",
+                                                "value": "birthday DESC"
+                                            },
+                                            {
+                                                "name": "firstName",
+                                                "value": "John"
+                                            },
+                                            {
+                                                "name": "lastName",
+                                                "value": "Doe"
+                                            },
+                                            {
+                                                "name": "active",
+                                                "value": "true"
+                                            },
+                                            {
+                                                "name": "company",
+                                                "value": "0e8c9fb0-ad98-11e6-bf2e-47644ada7c0f"
+                                            }
+                                        ]
+                                    },
+                                    "scheme": {
+                                        "secure": true,
+                                        "name": "https",
+                                        "version": "V11"
+                                    },
+                                    "host": "vasigta.ap.api-mocks.com",
+                                    "path": "/contacts/"
+                                },
+                                "description": "Loads a list of Contact",
+                                "id": "0bce7361-57b0-4c56-993e-6295456b4e80",
+                                "name": "Get the list of Contacts",
+                                "tag": "dcdccc0d-517b-4af8-ae30-f16ab006865e",
+                                "headers": [
+                                    {
+                                        "enabled": true,
+                                        "name": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "parentId": "44120f57-fbe7-4f7d-8d44-7036dd6d8257"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "type": "Request",
+                                "method": {
+                                    "link": "",
+                                    "name": "GET"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "scheme": {
+                                        "secure": true,
+                                        "name": "https",
+                                        "version": "V11"
+                                    },
+                                    "host": "vasigta.ap.api-mocks.com",
+                                    "path": "/contacts/{contactid}"
+                                },
+                                "description": "Loads a Contact",
+                                "id": "173c3ba6-9af2-4656-b8ae-4d0a048acd6e",
+                                "name": "Load an individual Contact",
+                                "tag": "4f739cce-13fe-40ac-a675-fb3ef4ab5acc",
+                                "headers": [
+                                    {
+                                        "enabled": true,
+                                        "name": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "parentId": "44120f57-fbe7-4f7d-8d44-7036dd6d8257"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "type": "Request",
+                                "method": {
+                                    "requestBody": true,
+                                    "link": "",
+                                    "name": "PUT"
+                                },
+                                "body": {
+                                    "bodyType": "Text",
+                                    "textBody": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"birthday\": 152755200000,\n  \"active\": true,\n  \"rank\": 1,\n  \"company\": \"0e8cedd0-ad98-11e6-bf2e-47644ada7c0f\"\n}"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "scheme": {
+                                        "secure": true,
+                                        "name": "https",
+                                        "version": "V11"
+                                    },
+                                    "host": "vasigta.ap.api-mocks.com",
+                                    "path": "/contacts/{contactid}"
+                                },
+                                "description": "Stores a Contact",
+                                "id": "852aefe8-210a-4962-a2b2-6931031c82c2",
+                                "name": "Update a Contact",
+                                "tag": "c9d123f1-2608-41b4-aad1-ae54d401e54f",
+                                "headers": [
+                                    {
+                                        "enabled": true,
+                                        "name": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "enabled": true,
+                                        "name": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "parentId": "44120f57-fbe7-4f7d-8d44-7036dd6d8257"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "entity": {
+                        "type": "Service",
+                        "id": "2ac944ba-39c8-4c02-9b40-6ad9f806ab53",
+                        "name": "General",
+                        "tag": "63f2289d-4a3b-4856-8802-d4a5632518ab",
+                        "parentId": "cca18f79-6577-4e98-8d14-6cd55d4d33f9"
+                    }
+                }
+            ]
+        }
+    ],
+    "front-version": "2.104.4"
+}
